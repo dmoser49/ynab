@@ -13,6 +13,7 @@
     <!-- <div class="row"> -->
         {{#if currentUser}}
             {{> sidenav}}
+            {{> nav}}
             <!-- {{> nav}} -->
             {{> yield "main"}}
         {{else}}
@@ -23,17 +24,11 @@
 </template>
 
 <template name="navigation">
-    <div class="navbar navbar-default container" role="navigation">
+    <div class="navbar navbar-default" role="navigation">
         <div class="navbar-header">
             <a class="navbar-brand" href="#">BudgetBro!</a>
         </div>
         <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li class=""><a href="/friends">Friends</a></li>
-            </ul>
-            <ul class="nav navbar-nav">
-                <li class=""><a href="/addpic">Add Pic</a></li>
-            </ul>
             <ul class="nav navbar-nav navbar-right">
                 {{> loginButtons}} 
             </ul>
@@ -42,20 +37,33 @@
 </template>
 
 <template name="sidenav">
-    <div class="col-md-2" role="navigation">
-        <div class="row">
+    <div class="col-md-2 side" role="navigation">
+        <div class="row dropdown">
         <!-- <div class="navbar-header"> -->
-            <a class="navbar-brand" href="#">My Budget<b class="caret"></b></a>
+            <a href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Budget<b class="caret"></b></a>
+            <ul class="dropdown-menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">Separated link</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">One more separated link</a></li>
+            </ul>
         <!-- </div> -->
         </div>
         <div class="row">
-            <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-envelope"></span>  Budget</a>
+            <ul>
+                <li>
+                    <a class="navbar-brand" href="/"><span class="glyphicon glyphicon-envelope"></span> Budget</a>
+                </li>
+                <li>
+                    <a class="navbar-brand" href="/accounts"><span class="glyphicon glyphicon-home"></span> All Accounts</a>
+                </li>
+            </ul>
         </div>
-        <div class="row">
-            <a class="navbar-brand" href="#">Link</a>
-        </div>
-        <div class="row">
-            <a href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+        <div class="row dropdown">
+            <a href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Budget<span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="#">Action</a></li>
                         <li><a href="#">Another action</a></li>
@@ -66,7 +74,7 @@
                         <li><a href="#">One more separated link</a></li>
                     </ul>
         </div>
-        <div class="row">
+        <div class="row bottom">
             <ul class="nav navbar-nav navbar-left dropup">
                 {{> loginButtons}} 
             </ul>
@@ -76,9 +84,16 @@
 
 <template name="nav">
     <nav class="navbar navbar-default col-md-offset-2">
-        Hello
-    </nav>
+        <div class="col-md-3 nav-col">
+            <div class="row">
+                <button style="float:left" type="button" class="btn btn-primary"><span class="glyphicon glyphicon-chevron-left"></span></button>
 
+                <button style="float:right" type="button" class="btn btn-primary"><span class="glyphicon glyphicon-chevron-right"></span></button>
+                <!-- <div>Hi</div> -->
+                <!-- <button style="float: right" type="button" class="btn btn-primary"><span class="glyphicon glyphicon-chevron-right"></span></button> -->
+            </div>
+        </div>
+    </nav>
 </template>
 
 <template name="noUser">
@@ -86,3 +101,36 @@
         Please log in!
     </div>
 </template>
+
+<template name="login">
+    <div class="row">
+        <div class="h3">
+            Welcome {{currentUser.username}}!
+        </div>
+        <table class="col-md-6 rows">
+            <tr class="budge">
+                <td>hihihi</td>
+            </tr>
+            <tr class="budge">
+                <td>hello</td>
+            </tr>
+        </table>
+        <div class="right-col col-md-offset-8">
+            Hi there
+        </div>
+    </div>
+</template>
+
+<template name="budget">
+    <div class="h3 text-center col-md-offset-2">
+        Budget
+    </div>
+</template>
+
+<template name="accounts">
+    <div class="h3 text-center">
+        Accounts
+    </div>
+</template>
+
+
