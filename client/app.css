@@ -35,6 +35,12 @@ ul {
   /*position: fixed;*/
 }
 
+hr {
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+}
+
 .navbar-default {
   max-height: 100px;
   width: 100%;
