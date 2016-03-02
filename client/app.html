@@ -1,0 +1,88 @@
+<head>
+    <meta charset="UTF-8">
+    <title>My Portfolio</title>
+    <link rel="alternate" type="application/rss+xml" title="My Portfolio" href="/rss/posts">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+</body>
+
+<template name="ApplicationLayout">
+    <!-- <div class="row"> -->
+        {{#if currentUser}}
+            {{> sidenav}}
+            <!-- {{> nav}} -->
+            {{> yield "main"}}
+        {{else}}
+            {{> navigation}}
+            {{> noUser}}
+        {{/if}}
+    <!-- </div> -->
+</template>
+
+<template name="navigation">
+    <div class="navbar navbar-default container" role="navigation">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">BudgetBro!</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li class=""><a href="/friends">Friends</a></li>
+            </ul>
+            <ul class="nav navbar-nav">
+                <li class=""><a href="/addpic">Add Pic</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                {{> loginButtons}} 
+            </ul>
+        </div>
+    </div>
+</template>
+
+<template name="sidenav">
+    <div class="col-md-2" role="navigation">
+        <div class="row">
+        <!-- <div class="navbar-header"> -->
+            <a class="navbar-brand" href="#">My Budget<b class="caret"></b></a>
+        <!-- </div> -->
+        </div>
+        <div class="row">
+            <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-envelope"></span>  Budget</a>
+        </div>
+        <div class="row">
+            <a class="navbar-brand" href="#">Link</a>
+        </div>
+        <div class="row">
+            <a href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Separated link</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">One more separated link</a></li>
+                    </ul>
+        </div>
+        <div class="row">
+            <ul class="nav navbar-nav navbar-left dropup">
+                {{> loginButtons}} 
+            </ul>
+        </div>
+    </div>
+</template>
+
+<template name="nav">
+    <nav class="navbar navbar-default col-md-offset-2">
+        Hello
+    </nav>
+
+</template>
+
+<template name="noUser">
+    <div class="h3 text-center">
+        Please log in!
+    </div>
+</template>
