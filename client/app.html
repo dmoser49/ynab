@@ -54,17 +54,67 @@
         <div class="row">
             <ul>
                 <li>
-                    <a class="navbar-brand" href="/"><span class="glyphicon glyphicon-envelope"></span> Budget</a>
+                    <a class="navbar-brand" href="/"><span class="glyphicon glyphicon-envelope"></span>Budget</a>
                 </li>
                 <li>
-                    <a class="navbar-brand" href="/accounts"><span class="glyphicon glyphicon-home"></span> All Accounts</a>
+                    <a class="navbar-brand" href="/accounts"><span class="glyphicon glyphicon-home"></span>All Accounts</a>
                 </li>
             </ul>
         </div>
         <hr>
         <div class="row">
-                    <button type="button" href="#" class="navbar-brand" data-toggle="collapse">Budget<span class="caret"></span></button>
+            <a class="navbar-brand collapsed accordion-caret" data-toggle="collapse" href="#collapseOne" aria-expanded="false" aria-controls="collapseExample">Budget</a>
+            <div class="collapse" id="collapseOne">
+                <ul>
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li><a href="#">Separated link</a></li>
+                    <li><a href="#">One more separated link</a></li>
+                </ul>
+            </div>
         </div>
+        <hr>
+        <div class="row right">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addAccountModal"><span class="glyphicon glyphicon-plus-sign"></span>Add Account</button>
+        </div>
+
+        <div class="modal fade" id="addAccountModal" tabindex="-1" role="dialog" aria-labelledby="addAccountLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="exampleModalLabel">Add a New Account</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                      <div class="form-group">
+                        <label for="recipient-name" class="control-label" required>Account Name:</label>
+                        <input type="text" class="form-control" id="accountName">
+                      </div>
+                      <div class="form-group">
+                        <label for="message-text" class="control-label" required>AccountType:</label>
+                        <div class="row">
+                            <select class="across" name="accounts">
+                                <option value="checking">Checking</option>
+                                <option value="credit">Credit Card</option>
+                            </select>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="recipient-name" class="control-label" required>Today's Balance</label>
+                        <input type="text" class="form-control" id="balance">
+                      </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-default cancelAccount">Cancel</button>
+                    <button class="btn btn-primary addAccount">Add Account</button>
+                </div>
+            </div>
+          </div>
+        </div>
+
         <div class="row bottom">
             <ul class="nav navbar-nav navbar-left dropup">
                 {{> loginButtons}} 
@@ -95,20 +145,38 @@
 
 <template name="login">
     <div class="row">
-        <div class="h3">
-            Welcome {{currentUser.username}}!
-        </div>
-        <table class="col-md-6 rows">
-            <tr class="budge">
-                <td>hihihi</td>
-            </tr>
-            <tr class="budge">
-                <td>hello</td>
+        <table class="col-md-7">
+            <tr class="tb-head">
+                <td width="50%"><h4>Welcome {{currentUser.username}}!</h4></td>
+                <td width="17%">Budgeted</td>
+                <td width="17%">Activity</td>
+                <td width="18%">Available</td>
             </tr>
         </table>
-        <div class="right-col col-md-offset-8">
-            Hi there
-        </div>
+        <table class="col-md-7">
+            {{#each currentUser.profile.categories}}
+            <div class="{{@index}}">
+                <thead>
+                    <tr>
+                        <th width="50%">{{this.name}}</th>
+                        <th width="17%"><bdi>$</bdi>{{this.total.[0]}}</th>
+                        <th width="17%"><bdi>$</bdi>{{this.total.[1]}}</th>
+                        <th width="18%"><bdi>$</bdi>{{this.total.[2]}}</th>
+                    </tr>
+                </thead>
+                {{#each arrayify this.budgeted}}
+                <tbody>
+                    <tr>
+                        <td width="50%">{{name}}</td>
+                        <td width="17%"><bdi>$</bdi><input type="number" name="budgeted" id="{{name}}" value="{{value.[0]}}"></td>
+                        <td width="17%"><bdi>$</bdi>{{value.[1]}}</td>
+                        <td width="18%"><bdi>$</bdi>{{value.[2]}}</td>
+                    </tr>
+                </tbody>
+                {{/each}}
+            </div>
+            {{/each}}
+        </table>
     </div>
 </template>
 

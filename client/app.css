@@ -6,48 +6,74 @@ body, html {
 .navbar-default {
   border-radius: 0;
 }
+
+input {
+  text-align: left;
+  width: 50%;
+  border: none;
+}
+
 ul {
   list-style-type: none;
   margin: 0px;
   padding: 0px;
 }
 
-.side {
-  /*z-index: 998;*/
-}
-
-/*.no-float {
-  float: none;
-  height: 100%;
-  min-height: 100%;
-  position: relative;
-}*/
-
 .col-md-2 {
   background: yellow;
   min-height: 100%;
 }
 
-.right-col {
+tbody {
+  overflow-y: auto;
+}
+
+th {
+  background-color: #87cefa; 
+}
+
+.col-md-12 {
   border: solid black 1px;
-  height: 100%;
-  width: 40%;
-  /*position: fixed;*/
+}
+
+.glyphicon {
+  margin-right: 10px;
+}
+
+.tb-head {
+  border: none;
+}
+
+.right {
+  text-align: right;
+  margin-right: 5px;
+}
+
+.collapse {
+  margin-left:20px;
+  margin-bottom: 10px;
 }
 
 hr {
-  margin: 0px;
+  margin: 5px;
   padding: 0px;
+  width: 100%;
+}
+
+.across {
+  width:95%;
+  margin-left: 15px;
+  font-size: 30px;
+}
+
+.navbar-brand {
   width: 100%;
 }
 
 .navbar-default {
   max-height: 100px;
   width: 100%;
-}
-
-.rows {
-  padding-left: 0px;
+  margin-bottom: 0px;
 }
 
 html, body {
@@ -68,15 +94,9 @@ html, body {
   height: 100%;
   text-align:center;
 }
-
-.budge {
+tr {
   border-top: solid black 1px;
   border-bottom: solid black 1px;
-  border-collapse: no-collapse;
-  border-spacing: 0px;
-  float: none;
-  width: 100%;
-  height: 2%;
 }
 
 #login-dropdown-list .dropdown-toggle{
