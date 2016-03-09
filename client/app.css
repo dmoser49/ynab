@@ -1,10 +1,6 @@
 body, html { 
     overflow-x: hidden; 
-    /*overflow-y: hidden;*/
-}
-
-.navbar-default {
-  border-radius: 0;
+    overflow-y: hidden;
 }
 
 input {
@@ -22,6 +18,7 @@ ul {
 .col-md-2 {
   background: yellow;
   min-height: 100%;
+  background: -webkit-linear-gradient(top, #34aebe, #227e99);
 }
 
 tbody {
@@ -29,7 +26,17 @@ tbody {
 }
 
 th {
-  background-color: #87cefa; 
+  font-size: 17px;
+  background-color: #e5f5f9;
+  padding:5px 5px 5px 10px;
+  border-top: 1px solid #dee3e8;
+  font-weight: normal;
+}
+td {
+  border-top:1px solid #dee3e8;
+  background-color: #fff;
+  font-size: 15px;
+  padding:5px 5px 5px 10px;
 }
 
 .col-md-12 {
@@ -54,10 +61,50 @@ th {
   margin-bottom: 10px;
 }
 
-hr {
-  margin: 5px;
-  padding: 0px;
+.right-panel {
+  border: 1px solid #e1e1e1;
+  background-color: #e5f5f9;
+  height:100%;
+  position:fixed;
+  overflow: hidden;
+  text-align: center;
+}
+
+.nav-account {
   width: 100%;
+  margin: 0 auto;
+  line-height: 1.5;
+  border-top: 1px solid #338ca2;
+  border-bottom: 1px solid #338ca2;
+  padding: .5em 0 .65em 0;
+}
+
+h2 {
+  display: block;
+  line-height: 1em;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+h3 {
+  font-size: .875em;
+  background-color: transparent;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  margin-bottom: .5em;
+}
+
+hr {
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 1px dotted #588697;
+  width: 80%;
+  height: .1em;
+  color: transparent;
+  background-color: transparent;
 }
 
 .across {
@@ -66,14 +113,23 @@ hr {
   font-size: 30px;
 }
 
+.scrollable {
+  overflow: hidden;
+  overflow-y: scroll;
+  height:88%;
+  position:fixed;
+}
+
 .navbar-brand {
   width: 100%;
+  color: white;
 }
 
 .navbar-default {
   max-height: 100px;
   width: 100%;
   margin-bottom: 0px;
+  border-radius: 0px;
 }
 
 html, body {
@@ -81,9 +137,10 @@ html, body {
 }
 
 .bottom {
-  position: absolute;
   bottom: 0%;
-  left: 8%;
+  position: absolute;
+  background-color: #1f8ca7;
+  width: 100%;
   /*background: orange;*/
 }
 
@@ -94,22 +151,9 @@ html, body {
   height: 100%;
   text-align:center;
 }
-tr {
-  border-top: solid black 1px;
-  border-bottom: solid black 1px;
-}
 
 #login-dropdown-list .dropdown-toggle{
-  color: red;
-  font-size: 125%;
-  font-weight:bold;
+  color: white;
+  font-size: 110%;
+  /*font-weight:bold;*/
 }
-
-
-
-
-/*.center {
-  display:inline-block;
-  position: relative;
-  top: 30px;
-}*/

@@ -37,10 +37,9 @@
 </template>
 
 <template name="sidenav">
-    <div class="col-md-2 side" role="navigation">
+    <div class="col-md-2" >
         <div class="row dropdown">
-        <!-- <div class="navbar-header"> -->
-            <a href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Budget<b class="caret"></b></a>
+            <a href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><b>My Budget</b><b class="caret"></b></a>
             <ul class="dropdown-menu">
                 <li><a href="#">Create a new budget</a></li>
                 <li><a href="#">Open a budget</a></li>
@@ -49,7 +48,6 @@
                 <li><a href="#">Make a fresh start</a></li>
                 <li><a href="#">Export budget data</a></li>
             </ul>
-        <!-- </div> -->
         </div>
         <div class="row">
             <ul>
@@ -61,8 +59,7 @@
                 </li>
             </ul>
         </div>
-        <hr>
-        <div class="row">
+        <div class="row nav-account">
             <a class="navbar-brand collapsed accordion-caret" data-toggle="collapse" href="#collapseOne" aria-expanded="false" aria-controls="collapseExample">Budget</a>
             <div class="collapse" id="collapseOne">
                 <ul>
@@ -74,7 +71,6 @@
                 </ul>
             </div>
         </div>
-        <hr>
         <div class="row right">
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addAccountModal"><span class="glyphicon glyphicon-plus-sign"></span>Add Account</button>
         </div>
@@ -103,12 +99,12 @@
                       </div>
                       <div class="form-group">
                         <label for="recipient-name" class="control-label" required>Today's Balance</label>
-                        <input type="text" class="form-control" id="balance">
+                        <input type="number" class="form-control" id="balance">
                       </div>
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-default cancelAccount">Cancel</button>
+                    <button class="btn btn-default cancelAccount" data-dismiss="modal">Cancel</button>
                     <button class="btn btn-primary addAccount">Add Account</button>
                 </div>
             </div>
@@ -144,8 +140,8 @@
 </template>
 
 <template name="login">
-    <div class="row">
-        <table class="col-md-7">
+    <div class="scrollable">
+        <table class="col-md-offset-2 col-md-7">
             <tr class="tb-head">
                 <td width="50%"><h4>Welcome {{currentUser.username}}!</h4></td>
                 <td width="17%">Budgeted</td>
@@ -153,7 +149,7 @@
                 <td width="18%">Available</td>
             </tr>
         </table>
-        <table class="col-md-7">
+        <table class="col-md-offset-2 col-md-7">
             {{#each currentUser.profile.categories}}
             <div class="{{@index}}">
                 <thead>
@@ -177,6 +173,12 @@
             </div>
             {{/each}}
         </table>
+        <div class="col-md-offset-9 col-md-3 right-panel">
+            <!-- <div class="row"> -->
+                <h3>TOTAL BUDGETED</h3>
+                <h2><bdi>$</bdi></h2>
+            <!-- </div> -->
+        </div>
     </div>
 </template>
 
